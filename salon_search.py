@@ -9,14 +9,14 @@ import streamlit as st
 import plotly.express as px
 
 
-# In[3]:
+# In[2]:
 
 
 # merged.csvを読み込む
-merged_df = pd.read_csv("merged_public.csv")
+merged_df = pd.read_csv("merged.csv")
 
 
-# In[4]:
+# In[3]:
 
 
 # streamlitの部品設計
@@ -27,7 +27,7 @@ price_limit = st.slider("最低カット価格の上限", min_value=2000, max_va
 score_limit = st.slider("人気スコアの下限", min_value=0.0, max_value=35.0, step=2.0, value=5.0)
 
 
-# In[5]:
+# In[4]:
 
 
 # フィルタ処理
@@ -37,7 +37,7 @@ filtered_df = merged_df[
 ]
 
 
-# In[6]:
+# In[5]:
 
 
 # 散布図の作成（人気スコア x 最低カット価格）
@@ -52,7 +52,7 @@ fig = px.scatter(
 st.plotly_chart(fig)
 
 
-# In[7]:
+# In[6]:
 
 
 # 詳細リンクの表示
@@ -63,7 +63,7 @@ if selected_salon:
     st.markdown(f"[{selected_salon}のページへ移動]({url})", unsafe_allow_html=True)
 
 
-# In[8]:
+# In[7]:
 
 
 sort_key = st.selectbox(
@@ -74,7 +74,7 @@ sort_key = st.selectbox(
 ascending = True if sort_key == "price" else False
 
 
-# In[9]:
+# In[8]:
 
 
 st.subheader(f"{sort_key} によるサロンランキング（上位10件）")
